@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="com.adobe.flexide.as.core.codetemplates.action_script_type_members" deleted="false" description="Creates a strongly typed array using ObjectTranslator. Type the array name, highlight it and initiate code completion (ctrl + space). Type the class at the prompt &amp; use autocomplete to import it." enabled="true" name="strongly typed Array">${:import(ObjectTranslator)}&#13;
+private var _${word_selection}:Array&#13;
+		&#13;
+public function get ${word_selection}():Array &#13;
+{&#13;
+	return _${word_selection};&#13;
+}&#13;
+&#13;
+public function set ${word_selection}(value:Array):void &#13;
+{&#13;
+	for (var i:int = 0; i &lt; value.length; i++) &#13;
+	{&#13;
+		value[i] = ObjectTranslator.objectToInstance(value[i], ${cursor});&#13;
+	}&#13;
+	_${word_selection} = value;&#13;
+}</template><template autoinsert="true" context="com.adobe.flexide.as.core.codetemplates.action_script_type_members" deleted="false" description="Creates a strongly typed property using ObjectTranslator. Type the property name, highlight it &amp; initiate code completion. Type the class at the prompt &amp; use autocomplete to import it." enabled="true" name="strongly typed object property">${:import(ObjectTranslator)}&#13;
+private var _${word_selection}:${class};&#13;
+		&#13;
+public function get ${word_selection}():${class} &#13;
+{&#13;
+	return _${word_selection};&#13;
+}&#13;
+		&#13;
+public function set ${word_selection}(value:*):void &#13;
+{&#13;
+	_${word_selection} = ObjectTranslator.objectToInstance(value, ${class});&#13;
+}</template></templates>
